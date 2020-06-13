@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductcreateComponent implements OnInit, CreateUpdateComponentInterface {
 
-  resourceName = "products";
+  resourceName = "product";
   baseUrl: string = "";
   id;
   data;
