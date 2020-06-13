@@ -1,0 +1,20 @@
+@import '../../../../styles.scss';
+
+.pageTitle {
+
+  font-size: 22px;
+  color: black;
+  margin: 0;
+}
+
+::ng-deep {
+
+  .mat-dialog-container {
+
+    border-radius: 15px !important;
+  }
+}
+
+.min-height {
+  min-height: 100px;
+}

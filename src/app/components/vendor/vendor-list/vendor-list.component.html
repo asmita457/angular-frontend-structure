@@ -1,0 +1,109 @@
+<div class="operations-container" fxLayoutAlign="center start" fxLayout="row wrap">
+
+    <!-- Search filter and buttons -->
+    <div class="top-div paddingClass15" fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="search-field">
+        <mat-form-field style="width: 300px;">
+          <mat-label> Type your word for search </mat-label>
+          <input [formControl]="searchFormControl" matInput type="text" [(ngModel)]="searchModel">
+          <button matSuffix mat-button *ngIf="searchModel" matSuffix mat-icon-button aria-label="Clear"
+            (click)="searchModel=''">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+  
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+        <button mat-raised-button class="add-button" (click)="handleCreateData()">
+          <mat-icon>add_circle_outline</mat-icon>Add
+        </button>
+  
+        <button mat-raised-button class="filter-button">
+          <mat-icon>filter_list</mat-icon>Filter
+        </button>
+  
+      </div>
+    </div>
+  
+    <div *ngIf="!noDataPresent" class="scrollable-div paddingClass" fxLayout="row wrap" fxFlex=100
+      fxLayoutAlign="start start">
+  
+      <div fxLayout="row wrap" fxFlex=100 fxLayoutAlign="start start" class="mat-elevation-z8">
+  
+        <mat-table fxFlex="100" [dataSource]="dataList">
+          <ng-container *ngFor="let col of displayedColumns;let i = index" matColumnDef="{{col}}">
+            <mat-header-cell *matHeaderCellDef>
+              {{col}}
+            </mat-header-cell>
+  
+            <mat-cell *matCellDef="let element">
+  
+              <span *ngIf="columnDetails[i].type == 'Date' ">
+                {{ element[ columnDetails[i].key ]  | date }}
+              </span>
+  
+              <span *ngIf="columnDetails[i].type == 'Text' ">
+                {{ element[ columnDetails[i].key ] }}
+              </span>
+  
+              <span *ngIf="columnDetails[i].type == 'Chips' ">
+  
+                <mat-chip-list *ngFor="let chipElement of element[ columnDetails[i].key ]" aria-label="chips">
+                  <mat-chip color="primary" selected> {{chipElement}} </mat-chip>
+                </mat-chip-list>
+  
+              </span>
+  
+              <span *ngIf="columnDetails[i].type == 'Actions'">
+  
+                <i class="material-icons" *ngIf="actionMenuType == 1" [matMenuTriggerFor]="kababMenu"
+                  style="color: #9C9C9C;cursor: pointer;">
+                  more_vert
+                </i>
+  
+                <mat-menu #kababMenu="matMenu" class="cu-web-menu">
+                  <ng-template matMenuContent>
+  
+                    <button *ngFor="let menu of actionsMenuOptions" mat-menu-item class="menu-item"
+                      (click)="handleMenuClick(menu.key,element)">
+                      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="5px">
+                        <img class="menu-icon-img" src="{{menu.icon}}">
+                        <span class="menu-text">{{menu.name}}</span>
+                      </div>
+                    </button>
+                  </ng-template>
+                </mat-menu>
+  
+                <div *ngIf="actionMenuType == 0" fxLayout="row" fxLayoutGap="5px">
+                  <img *ngFor="let menu of actionsMenuOptions" class="menu-icon-img" title="{{menu.name}}"
+                    (click)="handleMenuClick(menu.key,element)" src="{{menu.icon}}">
+                </div>
+              </span>
+  
+            </mat-cell>
+          </ng-container>
+  
+          <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  
+          <mat-paginator [length]="totalDataLength" [pageIndex]="paginationModel.pageIndex"
+            [pageSize]="paginationModel.pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent($event)">
+          </mat-paginator>
+  
+        </mat-table>
+  
+        <div fxFlex=100 fxFlexLayout="row" fxLayoutAlign="end center">
+          <mat-paginator [length]="totalDataLength" [pageIndex]="paginationModel.pageIndex"
+            [pageSize]="paginationModel.pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent($event)">
+          </mat-paginator>
+        </div>
+      </div>
+    </div>
+  
+    <!-- No Data Found  -->
+    <div *ngIf="noDataPresent" style="height: 100%;" fxFlex=100 fxLayout="column" fxLayoutAlign="center center">
+      <img src="{{noDataImage}}" width="120px" height="120px">
+      <h3>{{noDataMessage}}</h3>
+    </div>
+  
+  </div>

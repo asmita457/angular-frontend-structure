@@ -1,0 +1,98 @@
+<div class="operations-container" fxLayoutAlign="start start" fxLayoutGap="20px" fxLayout="row wrap">
+
+    <div class="top-div paddingClass15" fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxLayout="row" fxLayoutGap="10px">
+
+            <span (click)="goBack()" class="material-icons cursor-pointer">
+                keyboard_backspace
+            </span>
+
+            <span class="pageTitle"> {{titleMessage}} </span>
+        </div>
+    </div>
+
+    <div class="divider-line" fxFlex="100">
+    </div>
+
+    <div class="scrollable-div" fxLayout="row" fxFlex="100">
+
+        <form style="height:auto" fxLayout="row wrap" fxFlex="100" fxLayoutGap="20px" fxLayoutAlign="start start"
+            [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+            <h2 fxFlex="100">
+                Product Details
+            </h2>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Name </mat-label>
+                <input formControlName="name" matInput >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Buy Price </mat-label>
+                <input formControlName="buyPrice" matInput >
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Unit </mat-label>
+                <input formControlName="unit" matInput >
+            </mat-form-field>
+
+            <!-- <h2 fxFlex="100">
+                Company Details
+            </h2> -->
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Sale Price </mat-label>
+                <input formControlName="salePrice" matInput >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> HSN Code </mat-label>
+                <input formControlName="hsnCode" matInput >
+            </mat-form-field>
+
+
+            <!-- <h2 fxFlex="100">
+                Address
+            </h2> -->
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> GST% </mat-label>
+                <input formControlName="gstPercentage" matInput >
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Stock </mat-label>
+                <input formControlName="stock" matInput >
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Min Stock Value </mat-label>
+                <input formControlName="minimumStock" matInput >
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Max Stock Value </mat-label>
+                <input formControlName="maximumStock" matInput >
+            </mat-form-field>
+
+
+         
+            <div fxFlexLayout="row" fxFlex="100" fxLayoutAlign="center center">
+                <button style="width: 200px;padding: 5px;font-size: 18px;" mat-raised-button color="primary"
+                    type="submit" class="btn btn-primary">Submit
+                </button>
+
+            </div>
+
+        </form>
+
+    </div> 
+
+
+</div>

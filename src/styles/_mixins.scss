@@ -1,0 +1,37 @@
+@import './variables';
+
+@mixin addButton {
+  background-color: $PrimaryColor;
+  color: $SecondColor;
+  border: 1px solid $BorderColor;
+  cursor: pointer;
+  letter-spacing: 1px;
+  // margin: 0.8em;
+  @include PrimaryFont()
+}
+
+@mixin customButton($backgroundColor, $color) {
+  background-color: $backgroundColor;
+  color: $color;
+  border: 1px solid $color;
+  cursor: pointer;
+  // margin: 0.8em;
+  letter-spacing: 1px;
+  @include PrimaryFont()
+}
+
+
+
+
+@mixin PrimaryFont {
+
+  font-family: $fontFamily;
+  font-weight: 400;
+}
+
+@mixin SecondFont {
+
+  font-family: $fontFamily;
+  font-weight: 400;
+
+}

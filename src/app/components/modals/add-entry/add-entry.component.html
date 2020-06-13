@@ -1,0 +1,16 @@
+<div fxLayout="column">
+
+  <div fxLayout="row wrap" fxFlex=100 fxLayoutAlign="space-between center">
+    <p class="pageTitle">{{title}}</p>
+    <mat-icon class="cursor-pointer" (click)="close()">close</mat-icon>
+  </div>
+
+  <div fxLayout="row wrap" class="min-height" fxFlex=100 fxLayoutAlign="start center">
+  </div>
+
+  <div fxLayout="row wrap" fxFlex=100 fxLayoutAlign="start center">
+    <button mat-raised-button class="add-button" fxFlex="45" value="Cancel">{{button2}}</button>
+    <div fxFlex></div>
+    <button mat-raised-button class="submit-button" fxFlex="45" value="Add">{{button1}}</button>
+  </div>
+</div>

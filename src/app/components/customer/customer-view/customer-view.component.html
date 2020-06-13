@@ -1,0 +1,42 @@
+<div class="operations-container" fxLayoutAlign="start start" fxLayout="row wrap">
+
+    <!-- Basic Design -->
+    <div fxFlex="100" fxLayoutAlign="start start" fxLayout="row wrap" class="content-div">
+
+        <div class="top-div paddingClass" fxFlex="100" fxLayout="row" fxLayoutGap="10px"
+            fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutGap="10px">
+
+                <span (click)="goBack()" class="material-icons cursor-pointer">
+                    keyboard_backspace
+                </span>
+
+                <span class="pageTitle"> Customer Details </span>
+            </div>
+
+            <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+
+                <button mat-raised-button class="add-button">
+                    <mat-icon class="menu-icon-img">create</mat-icon> Edit
+                </button>
+            </div>
+        </div>
+
+        <!-- Divider line -->
+        <div class="divider-line" fxFlex="100">
+        </div>
+
+        <!-- View -->
+        <div class="paddingClass" fxLayout="row wrap" fxFlex="100" fxFlexLayoutAlign="space-around center">
+            <div *ngFor="let x of viewDetails; let i = index" fxLayout="row wrap" fxFlex="45" style="padding:20px">
+                <span fxFlex="100" class="keyText"> {{ x.title }} </span>
+                <span fxFlex="100" class="keyValue"> {{ data[x.key]}} </span>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add New Designs if required -->
+
+
+</div>

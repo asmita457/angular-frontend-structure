@@ -1,0 +1,16 @@
+<div class="container" fxLayout="row" fxLayoutAlign="space-between center">
+
+  <div class="breadcrumb">
+    Customers
+  </div>
+
+  <div class="top-menu-options" fxLayout="row">
+    <mat-icon class="pointer" [matMenuTriggerFor]="userOptionsMenu">more_vert</mat-icon>
+    <mat-menu #userOptionsMenu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>

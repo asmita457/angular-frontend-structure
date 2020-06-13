@@ -1,0 +1,30 @@
+@import '../../../styles.scss';
+
+.width-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow: hidden !important;
+}
+
+
+.right-side-data {
+  height: 100%;
+  overflow: hidden;
+}
+
+.navbar {
+  box-sizing: border-box;
+  width: 100%;
+  height: $navBarHeight;
+  overflow: hidden;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  padding: 25px;
+  background-color: #dfdfdf;
+}

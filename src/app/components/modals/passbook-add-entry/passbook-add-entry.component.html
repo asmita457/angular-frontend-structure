@@ -1,0 +1,39 @@
+<div fxLayout="column" fxLayoutAlign="start stretch">
+
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+        <p class="dialogTitle">{{dialogData.titleMsg}}</p>
+        <mat-icon class="cursor-pointer" (click)="handleDialogClose()">close</mat-icon>
+    </div>
+
+    <div fxLayout="row wrap" fxLayoutAlign="start center">
+
+        <form class="paddingClass" fxLayout="row wrap" fxFlex="100" fxLayoutGap="20px" fxLayoutAlign="start center"
+            [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label> Message </mat-label>
+                <input formControlName="message" matInput placeholder="message">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label> Amount </mat-label>
+                <input formControlName="amount" matInput placeholder="Amount">
+            </mat-form-field>
+
+            <div fxLayout="row wrap" fxFlex="100" fxLayoutAlign="space-between center">
+                <button mat-raised-button class="cancel-button" fxFlex="45"
+                    value="Cancel">{{dialogData.cancelBtnText}}</button>
+
+                <button type="submit" mat-raised-button class="submit-button" fxFlex="45"
+                    value="Add">{{dialogData.submitBtnText}}</button>
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>

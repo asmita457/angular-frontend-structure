@@ -1,0 +1,7 @@
+@import '../../../../styles.scss';
+
+.scrollable-div {
+  height: calc(100% - 87px);
+  overflow-y: scroll;
+  box-sizing: border-box;
+}

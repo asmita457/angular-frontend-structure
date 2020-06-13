@@ -1,0 +1,105 @@
+<div class="operations-container" fxLayoutAlign="start start" fxLayoutGap="20px" fxLayout="row wrap">
+
+    <div class="top-div paddingClass15" fxLayout="row" fxFlex="100" fxLayoutAlign="start center">
+        <div fxLayout="row" fxLayoutGap="10px">
+
+            <span (click)="goBack()" class="material-icons cursor-pointer">
+                keyboard_backspace
+            </span>
+
+            <span class="pageTitle"> {{titleMessage}} </span>
+        </div>
+    </div>
+
+    <div class="divider-line" fxFlex="100">
+    </div>
+
+    <div class="scrollable-div" fxLayout="row" fxFlex="100">
+
+        <form style="height:auto" fxLayout="row wrap" fxFlex="100" fxLayoutGap="20px" fxLayoutAlign="start start"
+            [formGroup]="form" (ngSubmit)="onSubmit(form)">
+
+            <h2 fxFlex="100">
+                Oraganisation Details
+            </h2>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Oraganisation Name </mat-label>
+                <input formControlName="name" matInput placeholder="Name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Email </mat-label>
+                <input formControlName="email" matInput placeholder="Email">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Mobile </mat-label>
+                <input formControlName="mobile" matInput placeholder="Mobile">
+            </mat-form-field>
+
+            <h2 fxFlex="100">
+                Registration Details
+            </h2>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Gst Number </mat-label>
+                <input formControlName="gstNumber" matInput placeholder="Gst Number">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Cnn Number </mat-label>
+                <input formControlName="cnnNumber" matInput placeholder="Cnn Number">
+            </mat-form-field>
+
+
+            <h2 fxFlex="100">
+                Address
+            </h2>
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Address </mat-label>
+                <input formControlName="address" matInput placeholder="Address">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> City </mat-label>
+                <input formControlName="city" matInput placeholder="city">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> State </mat-label>
+                <input formControlName="state" matInput placeholder="State">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Country </mat-label>
+                <input formControlName="country" matInput placeholder="Country">
+            </mat-form-field>
+
+
+            <mat-form-field appearance="outline" fxFlex="45">
+                <mat-label> Pincode </mat-label>
+                <input formControlName="pinCode" matInput placeholder="Pincode">
+            </mat-form-field>
+
+
+            <div fxFlexLayout="row" fxFlex="100" fxLayoutAlign="center center">
+
+                <button style="width: 200px;padding: 5px;font-size: 18px;" mat-raised-button color="primary"
+                    type="submit" class="btn btn-primary">Submit
+                </button>
+
+            </div>
+
+        </form>
+
+    </div> 
+
+
+</div>
